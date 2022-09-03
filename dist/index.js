@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 const Chest_1 = __importDefault(require("./Chest"));
 const Cooldown_1 = require("./Cooldown");
-class UseMy {
+class Anytool {
     static MONEY = ['', 'k', 'M', 'G', 'T', 'P', 'E'];
     static Cooldown = Cooldown_1.Cooldown;
     static Chest = Chest_1.default;
@@ -198,4 +198,4 @@ class UseMy {
         return (text || "").split("").reverse().join("");
     }
 }
-module.exports = UseMy;
+module.exports = Anytool;

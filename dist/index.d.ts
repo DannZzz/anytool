@@ -1,7 +1,7 @@
 import Chest from "./Chest";
 import { Cooldown } from "./Cooldown";
 import { AnyObject, UuidOptions } from "./typing";
-declare class UseMy {
+declare class Anytool {
     static readonly MONEY: string[];
     static Cooldown: typeof Cooldown;
     static Chest: typeof Chest;
@@ -280,4 +280,4 @@ declare class UseMy {
      */
     reverseString(text: string): string;
 }
-export = UseMy;
+export = Anytool;

@@ -2,7 +2,7 @@ import Chest from "./Chest";
 import { Cooldown } from "./Cooldown";
 import { AnyObject, UuidOptions } from "./typing";
 
-class UseMy {
+class Anytool {
     static readonly MONEY = ['', 'k', 'M', 'G', 'T', 'P', 'E'];
     static Cooldown = Cooldown;
     static Chest = Chest;
@@ -408,4 +408,4 @@ class UseMy {
     }
 }
 
-export = UseMy;
+export = Anytool;

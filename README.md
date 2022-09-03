@@ -1,24 +1,24 @@
-# UseMy, a staticly collection of useful methods and classes!
+# Anytool, a staticly collection of useful methods and classes!
 
-> npm install use-my
+> npm install anytool
 
 ## Basic Usage
 ```javascript
-import UseMy from "use-my"; // es6 syntax
-// const UseMy = require("use-my"); // common javascript syntax
+import Anytool from "anytool"; // es6 syntax
+// const Anytool = require("anytool"); // common javascript syntax
 ```
 
 ### Or
 ```javascript
-import { randomNumber, unique, } from "use-my"; // es6 syntax
-// const { randomNumber, unique, } = require("use-my"); // common javascript syntax
+import { randomNumber, unique, } from "anytool"; // es6 syntax
+// const { randomNumber, unique, } = require("anytool"); // common javascript syntax
 ```
 
 ## Methods
 <details>
 <summary>randomItem</summary>
 
-UseMy.**randomItem(array, limit, unique)**
+Anytool.**randomItem(array, limit, unique)**
 
 | argument |      type       | optional |                                 description                                  | default |
 | :------- | :-------------: | :------: | :--------------------------------------------------------------------------: | :-----: |
@@ -39,7 +39,7 @@ randomItem({name1: "Dann", name2: "Not Dann", name3: "Always Dann"}, 2); // [["n
 <details>
 <summary>unique</summary>
 
-UseMy.**unique(array)**
+Anytool.**unique(array)**
 
 | argument | type  | optional | description | default |
 | :------- | :---: | :------: | :---------: | :-----: |
@@ -56,7 +56,7 @@ unique([1, 2, 3, 3, 4, 5, 5, 6]); // [1, 2, 3, 4, 5, 6]
 <details>
 <summary>equal</summary>
 
-UseMy.**equal(primary, secondary1, secondary2, ..., secondaryN)**
+Anytool.**equal(primary, secondary1, secondary2, ..., secondaryN)**
 
 | argument  | type  | optional |            description             | default |
 | :-------- | :---: | :------: | :--------------------------------: | :-----: |
@@ -79,7 +79,7 @@ equal({name: "Vardan", age: 18}, {age: 18, "name": "Vardan"}, {name: "Diana", ag
 <details>
 <summary>randomNumber</summary>
 
-UseMy.**randomNumber(min, max, dontRound)**
+Anytool.**randomNumber(min, max, dontRound)**
 
 | argument  |  type   | optional |                description                | default |
 | :-------- | :-----: | :------: | :---------------------------------------: | :-----: |
@@ -97,7 +97,7 @@ randomNumber(1, 10, true); // 3.2317609836...
 <details>
 <summary>shortenText</summary>
 
-UseMy.**shortenText(text)**
+Anytool.**shortenText(text)**
 
 | argument |  type  | optional | description | default |
 | :------- | :----: | :------: | :---------: | :-----: |
@@ -113,7 +113,7 @@ shortenText("Give me your love and I'll give you my sunshine", 10); // "Give me 
 <details>
 <summary>currencyFormat</summary>
 
-UseMy.**currencyFormat(number)**
+Anytool.**currencyFormat(number)**
 
 | argument |  type  | optional | description | default |
 | :------- | :----: | :------: | :---------: | :-----: |
@@ -130,7 +130,7 @@ currencyFormat(3133917); // 3.1M
 <details>
 <summary>formatNumber</summary>
 
-UseMy.**formatNumber(number, locale)**
+Anytool.**formatNumber(number, locale)**
 
 | argument |                                                                   type                                                                   | optional |    description    | default |
 | :------- | :--------------------------------------------------------------------------------------------------------------------------------------: | :------: | :---------------: | :-----: |
@@ -149,7 +149,7 @@ formatNumber(123456789, "ar-EG"); // ١٢٣٤٥٦٫٧٨٩
 <details>
 <summary>removeFromArray</summary>
 
-UseMy.**removeFromArray(array, filter)**
+Anytool.**removeFromArray(array, filter)**
 
 | argument |      type       | optional |                 description                  | default |
 | :------- | :-------------: | :------: | :------------------------------------------: | :-----: |
@@ -166,7 +166,7 @@ removeFromArray(["Dann", "Gago", "Meri", "Gago"], "Gago"); // ["Dann", "Meri"]
 <details>
 <summary>removeFromArrayExtended</summary>
 
-UseMy.**removeFromArrayExtended(array, filter)**
+Anytool.**removeFromArrayExtended(array, filter)**
 
 | argument |                               type                                | optional |                 description                  | default |
 | :------- | :---------------------------------------------------------------: | :------: | :------------------------------------------: | :-----: |
@@ -184,7 +184,7 @@ removeFromArrayExtended(["Dann", "Gago", "Meri", "Gago"], {elements: ["Dann"], i
 <details>
 <summary>uuid</summary>
 
-UseMy.**uuid(length, options)**
+Anytool.**uuid(length, options)**
 
 | argument |            type             | optional |     description     | default |
 | :------- | :-------------------------: | :------: | :-----------------: | :-----: |
@@ -205,7 +205,7 @@ uuid(10, {letters: "only", aditional: "@#$"}); // "FDj$dx@A#x"
 <details>
 <summary>resultOf</summary>
 
-UseMy.**resultOf(numbers, operation)**
+Anytool.**resultOf(numbers, operation)**
 
 | argument  |           type           | optional | description | default |
 | :-------- | :----------------------: | :------: | :---------: | :-----: |
@@ -227,7 +227,7 @@ resultOf([1, 2, 3], "/"); // 0.1666666666666667
 <details>
 <summary>reverseString</summary>
 
-UseMy.**reverseString(text)**
+Anytool.**reverseString(text)**
 
 | argument |  type  | optional | description | default |
 | :------- | :----: | :------: | :---------: | :-----: |
@@ -247,7 +247,7 @@ reverseString("Hello everyone!"); // "!enoyreve olleH"
 **[See File](src/Chest.ts)**
 
 Extended **[Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)** for holding values
-new UseMy.**Chest()**
+new Anytool.**Chest()**
 
 ### Usage examples
 
@@ -288,7 +288,7 @@ ages.hasAny("Dann", "Gago"); // Wheter there is at least one key of spec keys
 **[See File](src/Cooldown.ts)**
 
 Simple Cooldown system
-new UseMy.**Cooldown(time)**
+new Anytool.**Cooldown(time)**
 
 | argument |  type  | optional |          description          | default |
 | :------- | :----: | :------: | :---------------------------: | :-----: |
@@ -297,7 +297,7 @@ new UseMy.**Cooldown(time)**
 
 ### Examples
 ```js
-const commandLimiter = new UseMy.Cooldown(5000);
+const commandLimiter = new Anytool.Cooldown(5000);
 
 console.log(commandLimiter.isLimited(anyUser.id))
 ```
