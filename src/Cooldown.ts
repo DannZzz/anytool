@@ -13,7 +13,7 @@ export class Cooldown {
      * @param {string} key unique key
      * @returns {false | number} milliseconds if limited or false
      */
-    isLimited(key: string) {
+    isLimited(key: string): boolean | number {
         const value = this.cooldowns.get(key);
         if (!value || new Date() > value) {
             this.cooldowns.set(key, new Date(Date.now() + this.time));

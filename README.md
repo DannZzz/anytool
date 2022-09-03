@@ -241,6 +241,68 @@ reverseString("Hello everyone!"); // "!enoyreve olleH"
 
 ## Classes
 
+<details>
+<summary>Chest</summary>
+
+**[See File](src/Chest.ts)**
+
+Extended **[Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)** for holding values
+new UseMy.**Chest()**
+
+### Usage examples
+
+#### JavaScript
+
+```js
+const ages = new Chest();
+
+ages.set("Dann", 18);
+```
+
+#### TypeScript
+
+```ts
+const ages = new Chest<string, number>();
+
+ages.set("Dann", 18);
+
+ages.set("Gago", "18"); // error
+```
+
+#### Some methods
+
+```js
+ages.first(); // first value
+ages.random(); // random value
+ages.delete("Dann"); // delete item
+ages.setMany(age => age < 18, 18); // Setting new values after filtering
+ages.has("Dann"); // Wheter there is item with spec. key
+ages.hasAll("Dann", "Gago"); // Wheter there are all spec. keys
+ages.hasAny("Dann", "Gago"); // Wheter there is at least one key of spec keys
+```
+</details>
+
+<details>
+<summary>Cooldown</summary>
+
+**[See File](src/Cooldown.ts)**
+
+Simple Cooldown system
+new UseMy.**Cooldown(time)**
+
+| argument |  type  | optional |          description          | default |
+| :------- | :----: | :------: | :---------------------------: | :-----: |
+| time     | Number |          | Cooldown time in milliseconds |
+
+
+### Examples
+```js
+const commandLimiter = new UseMy.Cooldown(5000);
+
+console.log(commandLimiter.isLimited(anyUser.id))
+```
+</details>
+
 ## Types
 
 <details>
