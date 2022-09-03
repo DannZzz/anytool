@@ -1,0 +1,15 @@
+{
+  "name": "use-my",
+  "version": "1.0.0",
+  "description": "Useful methods",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run build && node dist/test/index.js"
+  },
+  "author": "Dann",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.8.2"
+  }
+}
