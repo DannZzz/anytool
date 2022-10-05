@@ -9,5 +9,5 @@ export declare class Cooldown {
      * @param {string} key unique key
      * @returns {false | number} milliseconds if limited or false
      */
-    isLimited(key: string): number | false;
+    isLimited(key: string): boolean | number;
 }

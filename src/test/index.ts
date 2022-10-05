@@ -1,4 +1,4 @@
-import Anytool from "..";
+import * as Anytool from "..";
 
 // console.log(Anytool.randomItem([1, 2, 3, 5]));
 // console.log(Anytool.randomItem([1, 2, 3, 5, 6], 3, true));
@@ -42,11 +42,17 @@ import Anytool from "..";
 
 // console.log(Anytool.uuid(8, { only: "<>?" }));
 
-console.log(Anytool.resultOf([1, 2, 3, 4, 5]));
+// console.log(Anytool.resultOf([1, 2, 3, 4, 5]));
 
-console.log(Anytool.resultOf([1, 2, 3, 4, 5], "*"));
+// console.log(Anytool.resultOf([1, 2, 3, 4, 5], "*"));
 
-console.log(Anytool.resultOf([1, 2, 3, 4, 5], "-"));
+// console.log(Anytool.resultOf([1, 2, 3, 4, 5], "-"));
 
-console.log(Anytool.resultOf([1, 2, 3, 4, 5], "/"));
+// console.log(Anytool.resultOf([1, 2, 3, 4, 5], "/"));
 
+const fib = Anytool.memoize((n: number): number => {
+    if (n < 2) return n;
+    return fib(n - 1) + fib(n - 2);
+});
+
+console.log(fib(1000))

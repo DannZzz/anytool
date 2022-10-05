@@ -4,7 +4,7 @@
 
 ## Basic Usage
 ```javascript
-import Anytool from "anytool"; // es6 syntax
+import * as Anytool from "anytool"; // es6 syntax
 // const Anytool = require("anytool"); // common javascript syntax
 ```
 
@@ -18,7 +18,7 @@ import { randomNumber, unique, } from "anytool"; // es6 syntax
 <details>
 <summary>randomItem</summary>
 
-Anytool.**randomItem(array, limit, unique)**
+**randomItem(array, limit, unique)**
 
 | argument |      type       | optional |                                 description                                  | default |
 | :------- | :-------------: | :------: | :--------------------------------------------------------------------------: | :-----: |
@@ -39,7 +39,7 @@ randomItem({name1: "Dann", name2: "Not Dann", name3: "Always Dann"}, 2); // [["n
 <details>
 <summary>unique</summary>
 
-Anytool.**unique(array)**
+**unique(array)**
 
 | argument | type  | optional | description | default |
 | :------- | :---: | :------: | :---------: | :-----: |
@@ -56,7 +56,7 @@ unique([1, 2, 3, 3, 4, 5, 5, 6]); // [1, 2, 3, 4, 5, 6]
 <details>
 <summary>equal</summary>
 
-Anytool.**equal(primary, secondary1, secondary2, ..., secondaryN)**
+**equal(primary, secondary1, secondary2, ..., secondaryN)**
 
 | argument  | type  | optional |            description             | default |
 | :-------- | :---: | :------: | :--------------------------------: | :-----: |
@@ -79,7 +79,7 @@ equal({name: "Vardan", age: 18}, {age: 18, "name": "Vardan"}, {name: "Diana", ag
 <details>
 <summary>randomNumber</summary>
 
-Anytool.**randomNumber(min, max, dontRound)**
+**randomNumber(min, max, dontRound)**
 
 | argument  |  type   | optional |                description                | default |
 | :-------- | :-----: | :------: | :---------------------------------------: | :-----: |
@@ -97,7 +97,7 @@ randomNumber(1, 10, true); // 3.2317609836...
 <details>
 <summary>shortenText</summary>
 
-Anytool.**shortenText(text)**
+**shortenText(text)**
 
 | argument |  type  | optional | description | default |
 | :------- | :----: | :------: | :---------: | :-----: |
@@ -113,7 +113,7 @@ shortenText("Give me your love and I'll give you my sunshine", 10); // "Give me 
 <details>
 <summary>currencyFormat</summary>
 
-Anytool.**currencyFormat(number)**
+**currencyFormat(number)**
 
 | argument |  type  | optional | description | default |
 | :------- | :----: | :------: | :---------: | :-----: |
@@ -130,7 +130,7 @@ currencyFormat(3133917); // 3.1M
 <details>
 <summary>formatNumber</summary>
 
-Anytool.**formatNumber(number, locale)**
+**formatNumber(number, locale)**
 
 | argument |                                                                   type                                                                   | optional |    description    | default |
 | :------- | :--------------------------------------------------------------------------------------------------------------------------------------: | :------: | :---------------: | :-----: |
@@ -149,7 +149,7 @@ formatNumber(123456789, "ar-EG"); // ١٢٣٤٥٦٫٧٨٩
 <details>
 <summary>removeFromArray</summary>
 
-Anytool.**removeFromArray(array, filter)**
+**removeFromArray(array, filter)**
 
 | argument |      type       | optional |                 description                  | default |
 | :------- | :-------------: | :------: | :------------------------------------------: | :-----: |
@@ -166,7 +166,7 @@ removeFromArray(["Dann", "Gago", "Meri", "Gago"], "Gago"); // ["Dann", "Meri"]
 <details>
 <summary>removeFromArrayExtended</summary>
 
-Anytool.**removeFromArrayExtended(array, filter)**
+**removeFromArrayExtended(array, filter)**
 
 | argument |                               type                                | optional |                 description                  | default |
 | :------- | :---------------------------------------------------------------: | :------: | :------------------------------------------: | :-----: |
@@ -184,7 +184,7 @@ removeFromArrayExtended(["Dann", "Gago", "Meri", "Gago"], {elements: ["Dann"], i
 <details>
 <summary>uuid</summary>
 
-Anytool.**uuid(length, options)**
+**uuid(length, options)**
 
 | argument |            type             | optional |     description     | default |
 | :------- | :-------------------------: | :------: | :-----------------: | :-----: |
@@ -205,7 +205,7 @@ uuid(10, {letters: "only", aditional: "@#$"}); // "FDj$dx@A#x"
 <details>
 <summary>resultOf</summary>
 
-Anytool.**resultOf(numbers, operation)**
+**resultOf(numbers, operation)**
 
 | argument  |           type           | optional | description | default |
 | :-------- | :----------------------: | :------: | :---------: | :-----: |
@@ -227,7 +227,7 @@ resultOf([1, 2, 3], "/"); // 0.1666666666666667
 <details>
 <summary>reverseString</summary>
 
-Anytool.**reverseString(text)**
+**reverseString(text)**
 
 | argument |  type  | optional | description | default |
 | :------- | :----: | :------: | :---------: | :-----: |
@@ -239,6 +239,28 @@ reverseString("Hello everyone!"); // "!enoyreve olleH"
 ```
 </details>
 
+<details>
+<summary>memoize</summary>
+
+**memoize(fn, doIf)**
+
+| argument |            type            | optional |                    description                    | default |
+| :------- | :------------------------: | :------: | :-----------------------------------------------: | :-----: |
+| fn       |          Function          |          |                   Any Function                    |
+| doIf     | Function (returns boolean) |   yes    | Do filtering function when cached value was found |
+
+### Examples
+```js
+memoize((array1, array2) => array1.every(value => array2.includes(value)));
+memoize((array1, array2) => array1.every(value => array2.includes(value)), (prevArgs, nextArgs) => {
+   if (prevArgs[0][0] !== nextArgs[0][0])
+      return false;
+
+   return true;
+});
+```
+</details>
+
 ## Classes
 
 <details>
@@ -247,7 +269,7 @@ reverseString("Hello everyone!"); // "!enoyreve olleH"
 **[See File](src/Chest.ts)**
 
 Extended **[Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)** for holding values
-new Anytool.**Chest()**
+**new Chest()**
 
 ### Usage examples
 
@@ -288,7 +310,7 @@ ages.hasAny("Dann", "Gago"); // Wheter there is at least one key of spec keys
 **[See File](src/Cooldown.ts)**
 
 Simple Cooldown system
-new Anytool.**Cooldown(time)**
+**new Cooldown(time)**
 
 | argument |  type  | optional |          description          | default |
 | :------- | :----: | :------: | :---------------------------: | :-----: |
@@ -297,7 +319,7 @@ new Anytool.**Cooldown(time)**
 
 ### Examples
 ```js
-const commandLimiter = new Anytool.Cooldown(5000);
+const commandLimiter = new Cooldown(5000);
 
 console.log(commandLimiter.isLimited(anyUser.id))
 ```
