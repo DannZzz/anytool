@@ -261,6 +261,23 @@ memoize((array1, array2) => array1.every(value => array2.includes(value)), (prev
 ```
 </details>
 
+<details>
+<summary>numberArray</summary>
+
+**numberArray(start, end)**
+
+| argument |  type  | optional |  description   | default |
+| :------- | :----: | :------: | :------------: | :-----: |
+| start    | Number |          | Start of range |    0    |
+| end      | Number |   yes    | End of a range |  start  |
+
+### Examples
+```js
+numberArray(5); // [1, 2, 3, 4, 5]
+numberArray(5, 10); // [6, 7, 8, 9, 10]
+```
+</details>
+
 ## Classes
 
 <details>
