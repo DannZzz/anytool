@@ -32,7 +32,7 @@ import * as Anytool from "..";
 
 // console.log(Anytool.removeFromArrayExtended(["lol", "aahgaga", "ok"], { indexes: [0], elements: ["ok"] }));
 
-// console.log(Anytool.uuid(8));
+console.log(Anytool.uuid(8));
 
 // console.log(Anytool.uuid(8, { numbers: "only" }));
 
@@ -50,9 +50,9 @@ import * as Anytool from "..";
 
 // console.log(Anytool.resultOf([1, 2, 3, 4, 5], "/"));
 
-const fib = Anytool.memoize((n: number): number => {
-    if (n < 2) return n;
-    return fib(n - 1) + fib(n - 2);
-});
+// const fib = Anytool.memoize((n: number): number => {
+//     if (n < 2) return n;
+//     return fib(n - 1) + fib(n - 2);
+// });
 
-console.log(fib(1000))
+// console.log(fib(1000))

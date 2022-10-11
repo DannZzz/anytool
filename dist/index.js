@@ -9,17 +9,17 @@ const Cooldown_1 = require("./Cooldown");
 exports.MONEY = ['', 'k', 'M', 'G', 'T', 'P', 'E'];
 exports.Cooldown = Cooldown_1.Cooldown;
 exports.Chest = Chest_1.default;
-function randomItem(items, limit, unique) {
+function randomItem(items, limit, _unique) {
     let array = Array.isArray(items) ? items : Object.entries(items);
     if (limit && limit > 1) {
         let toSend = [];
-        if (unique)
-            array = this.unique(array);
+        if (_unique)
+            array = unique(array);
         if (limit >= array.length)
             return array;
         while (limit > toSend.length) {
             let item = array[Math.floor(Math.random() * array.length)];
-            while (unique && toSend.includes(item))
+            while (_unique && toSend.includes(item))
                 item = array[Math.floor(Math.random() * array.length)];
             toSend.push(item);
         }
@@ -92,7 +92,7 @@ function currencyFormat(number) {
     const ranking = Math.log10(number) / 3 | 0;
     if (!ranking)
         return number.toString();
-    const last = this.MONEY[ranking];
+    const last = exports.MONEY[ranking];
     const scale = Math.pow(10, ranking * 3);
     const scaled = number / scale;
     return `${scaled.toFixed(2)}${last}`;
@@ -107,7 +107,7 @@ function removeFromArray(array, element) {
         return array.filter((a, i) => i !== +element.slice(1));
     }
     else {
-        return array.filter((a, i) => !this.equal(element, a));
+        return array.filter((a, i) => !equal(element, a));
     }
 }
 exports.removeFromArray = removeFromArray;
@@ -119,7 +119,7 @@ function removeFromArrayExtended(array, filter) {
         toSend = array.filter((a, i) => !indexes.includes(i));
     }
     if (elements && elements.length > 0) {
-        toSend = (toSend.length === 0 ? array : toSend).filter(a => !elements.some(el => this.equal(el, a)));
+        toSend = (toSend.length === 0 ? array : toSend).filter(a => !elements.some(el => equal(el, a)));
     }
     ;
     return toSend;
@@ -147,7 +147,7 @@ function uuid(length, options = {}) {
         return "";
     let id = "";
     for (let i = 0; i < length; i++) {
-        const symb = this.randomItem(symbols.split(""));
+        const symb = randomItem(symbols.split(""));
         switch (options.letterType) {
             case "lowercase":
                 id += symb.toLowerCase();
@@ -156,7 +156,7 @@ function uuid(length, options = {}) {
                 id += symb.toUpperCase();
                 break;
             default:
-                id += this.randomNumber(0, 100) <= 50 ? symb.toLowerCase() : symb.toUpperCase();
+                id += randomNumber(0, 100) <= 50 ? symb.toLowerCase() : symb.toUpperCase();
                 break;
         }
     }

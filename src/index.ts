@@ -32,13 +32,13 @@ export function randomItem<T extends any>(array: T[], limit: number): T[];
  * 
  * @param {any[]} array any array
  * @param {number} limit limit of elements, get 2 or more elements
- * @param {true} unique only unique elements
+ * @param {true} _unique only unique elements
  * @returns {any[]}
  * 
  * @example
  * randomItem(["name1", "name2", 2, 3, "name3"], 3, true); // ["name2", 2, "name1"]
  */
-export function randomItem<T extends any>(array: T[], limit: number, unique: true): T[];
+export function randomItem<T extends any>(array: T[], limit: number, _unique: true): T[];
 /**
  * Get random [key, value] from object
  * 
@@ -60,15 +60,15 @@ export function randomItem<K extends keyof any, V extends any, T extends AnyObje
  * randomItem({name1: "Dann", name2: "Gago", name3: "Amazon"}, 2); // [["name3", "Amazon"], ["name1", "Dann"]]
  */
 export function randomItem<K extends keyof any, V extends any, T extends AnyObject<K, V>>(object: T, limit: number): [K, V][];
-export function randomItem<K extends keyof any, V extends any, T extends AnyObject<K, V> | any[]>(items: T, limit?: number, unique?: true): [K, V][] | [K, V] | T | T[] {
+export function randomItem<K extends keyof any, V extends any, T extends AnyObject<K, V> | any[]>(items: T, limit?: number, _unique?: true): [K, V][] | [K, V] | T | T[] {
     let array = Array.isArray(items) ? items : Object.entries(items);
     if (limit && limit > 1) {
         let toSend = [];
-        if (unique) array = this.unique(array);
+        if (_unique) array = unique(array);
         if (limit >= array.length) return array as any;
         while (limit > toSend.length) {
             let item = array[Math.floor(Math.random() * array.length)];
-            while (unique && toSend.includes(item)) item = array[Math.floor(Math.random() * array.length)];
+            while (_unique && toSend.includes(item)) item = array[Math.floor(Math.random() * array.length)];
             toSend.push(item);
         }
         return toSend;
@@ -196,7 +196,7 @@ export function shortenText(text: string, length: number): string {
 export function currencyFormat(number: number): string {
     const ranking = Math.log10(number) / 3 | 0;
     if (!ranking) return number.toString();
-    const last = this.MONEY[ranking];
+    const last = MONEY[ranking];
     const scale = Math.pow(10, ranking * 3);
     const scaled = number / scale;
     return `${scaled.toFixed(2)}${last}`;
@@ -253,7 +253,7 @@ export function removeFromArray<T>(array: T[], element: `#${number}` | T): T[] {
     if (typeof element === "string" && element.startsWith("#")) {
         return array.filter((a, i) => i !== +element.slice(1));
     } else {
-        return array.filter((a, i) => !this.equal(element, a));
+        return array.filter((a, i) => !equal(element, a));
     }
 };
 
@@ -295,7 +295,7 @@ export function removeFromArrayExtended<T>(array: T[], filter: { elements?: T[],
     }
 
     if (elements && elements.length > 0) {
-        toSend = (toSend.length === 0 ? array : toSend).filter(a => !elements.some(el => this.equal(el, a)));
+        toSend = (toSend.length === 0 ? array : toSend).filter(a => !elements.some(el => equal(el, a)));
     };
     return toSend;
 }
@@ -338,7 +338,7 @@ export function uuid(length: number, options: UuidOptions = {}): string {
     if (!symbols) return "";
     let id = "";
     for (let i = 0; i < length; i++) {
-        const symb = this.randomItem(symbols.split(""));
+        const symb = randomItem(symbols.split(""));
         switch (options.letterType) {
             case "lowercase":
                 id += symb.toLowerCase();
@@ -349,7 +349,7 @@ export function uuid(length: number, options: UuidOptions = {}): string {
                 break;
 
             default:
-                id += this.randomNumber(0, 100) <= 50 ? symb.toLowerCase() : symb.toUpperCase();
+                id += randomNumber(0, 100) <= 50 ? symb.toLowerCase() : symb.toUpperCase();
                 break;
         }
     }

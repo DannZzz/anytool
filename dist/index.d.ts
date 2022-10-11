@@ -30,13 +30,13 @@ export declare function randomItem<T extends any>(array: T[], limit: number): T[
  *
  * @param {any[]} array any array
  * @param {number} limit limit of elements, get 2 or more elements
- * @param {true} unique only unique elements
+ * @param {true} _unique only unique elements
  * @returns {any[]}
  *
  * @example
  * randomItem(["name1", "name2", 2, 3, "name3"], 3, true); // ["name2", 2, "name1"]
  */
-export declare function randomItem<T extends any>(array: T[], limit: number, unique: true): T[];
+export declare function randomItem<T extends any>(array: T[], limit: number, _unique: true): T[];
 /**
  * Get random [key, value] from object
  *
