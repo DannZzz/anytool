@@ -456,3 +456,36 @@ export function memoize<T extends (...args: any[]) => any>(fn: T, doIf?: (prevAr
         return cache[key].return;
     } as T;
 }
+
+/**
+ * Generate array of numbers between range (0, end]
+ * 
+ * @param {number} end  from 1 to end
+ * @returns {number[]}
+ * 
+ * @example
+ * numberArray(5); // [1, 2, 3, 4, 5]
+ */
+export function numberArray(end: number): number[];
+/**
+ * Generate array of numbers between range (start, end]
+ * 
+ * @param {number} start start of range
+ * @param {number} end end of range
+ * @returns {number[]}
+ * 
+ * @example
+ * numberArray(5, 10); // [6, 7, 8, 9, 10]
+ */
+export function numberArray(start: number, end: number): number[];
+export function numberArray(arg1: number, arg2?: number): number[] {
+    let start: number = arg1,
+        end: number = arg2;
+
+    if (arg2 === undefined) {
+        start = 0;
+        end = arg1;
+    }
+
+    return Array.from({ length: end - start }, (_, i) => i + 1 + start);
+}

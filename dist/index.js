@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.memoize = exports.reverseString = exports.resultOf = exports.uuid = exports.removeFromArrayExtended = exports.removeFromArray = exports.formatNumber = exports.currencyFormat = exports.shortenText = exports.randomNumber = exports.equal = exports.unique = exports.randomItem = exports.Chest = exports.Cooldown = exports.MONEY = void 0;
+exports.numberArray = exports.memoize = exports.reverseString = exports.resultOf = exports.uuid = exports.removeFromArrayExtended = exports.removeFromArray = exports.formatNumber = exports.currencyFormat = exports.shortenText = exports.randomNumber = exports.equal = exports.unique = exports.randomItem = exports.Chest = exports.Cooldown = exports.MONEY = void 0;
 const Chest_1 = __importDefault(require("./Chest"));
 const Cooldown_1 = require("./Cooldown");
 exports.MONEY = ['', 'k', 'M', 'G', 'T', 'P', 'E'];
@@ -233,3 +233,12 @@ function memoize(fn, doIf) {
     };
 }
 exports.memoize = memoize;
+function numberArray(arg1, arg2) {
+    let start = arg1, end = arg2;
+    if (arg2 === undefined) {
+        start = 0;
+        end = arg1;
+    }
+    return Array.from({ length: end - start }, (_, i) => i + 1 + start);
+}
+exports.numberArray = numberArray;

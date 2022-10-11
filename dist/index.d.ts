@@ -306,3 +306,24 @@ export declare function memoize<T extends (...args: any[]) => any>(fn: T): T;
  * });
  */
 export declare function memoize<T extends (...args: any[]) => any>(fn: T, doIf: (prevArgs: Parameters<T>, nextArgs: Parameters<T>) => boolean): T;
+/**
+ * Generate array of numbers between range (0, end]
+ *
+ * @param {number} end  from 1 to end
+ * @returns {number[]}
+ *
+ * @example
+ * numberArray(5); // [1, 2, 3, 4, 5]
+ */
+export declare function numberArray(end: number): number[];
+/**
+ * Generate array of numbers between range (start, end]
+ *
+ * @param {number} start start of range
+ * @param {number} end end of range
+ * @returns {number[]}
+ *
+ * @example
+ * numberArray(5, 10); // [6, 7, 8, 9, 10]
+ */
+export declare function numberArray(start: number, end: number): number[];
